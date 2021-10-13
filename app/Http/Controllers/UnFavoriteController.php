@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
          * @param  \Illuminate\Http\Request  $request
          * @return \Illuminate\Http\Response
          */
-        public function butstore(Tweet $tweet)
+        public function store(Tweet $tweet)
         {
             $tweet->tags()->attach(Auth::id());
             return redirect()->route('tweet.index');
@@ -30,7 +30,7 @@ use Illuminate\Http\Request;
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function butdestroy(Tweet $tweet)
+        public function destroy(Tweet $tweet)
         {
             $tweet->tags()->detach(Auth::id());
             return redirect()->route('tweet.index');
