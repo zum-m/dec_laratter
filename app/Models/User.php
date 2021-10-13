@@ -51,8 +51,13 @@ class User extends Authenticatable
       // ↓追加12.4
     public function tweets()
     {
-        return $this->belongsToMany(Tweet::class)->withTimestamps();
+        return $this->belongsToMany(Tweet::class, 'tweet_user')->withTimestamps();
     }
 
+    public function posts()
+    {
+      return $this->belongsToMany(Tweet::class, 'tweet_but_user')->withTimestamps();
+    }
+    
 
 }
