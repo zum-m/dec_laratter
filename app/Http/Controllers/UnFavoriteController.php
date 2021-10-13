@@ -17,7 +17,7 @@ class UnFavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Tweet $tweet)
+    public function butstore(Tweet $tweet)
     {
         $tweet->tags()->attach(Auth::id());
         return redirect()->route('tweet.index');
@@ -30,7 +30,7 @@ class UnFavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tweet $tweet)
+    public function butdestroy(Tweet $tweet)
     {
         $tweet->tags()->detach(Auth::id());
         return redirect()->route('tweet.index');

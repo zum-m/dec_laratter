@@ -35,13 +35,5 @@ class FavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function destroy($id)
-      // ↓ 編集 （`destroy()` の `()` 内も異なるので注意）
-    public function destroy(Tweet $tweet)
-    {
-        //12.5
-        $tweet->users()->detach(Auth::id());
-        return redirect()->route('tweet.index');
-    
-    }
+
 }
