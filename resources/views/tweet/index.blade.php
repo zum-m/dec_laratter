@@ -28,7 +28,7 @@
                 <td class="py-4 px-6 border-b border-grey-light">
                   <a href="{{ route('tweet.show',$tweet->id) }}">
                     <p class="text-left text-grey-dark">{{$tweet->user->name}}</p>
-                    <h3 class="text-left font-bold text-lg text-grey-dark">{{$tweet->tweet->updated_at}}</h3>
+                    <h3 class="text-left font-bold text-lg text-grey-dark">{{$tweet->updated_at}}</h3>
                   </a>
                   <div class="flex">
                     <!-- ↓追加 -->
