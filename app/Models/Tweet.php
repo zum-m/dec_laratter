@@ -30,7 +30,7 @@ class Tweet extends Model
       // ↓追加12.4
     public function users()
     {
-        return $this->belongsToMany(User::class, 'tweet_user')->withTimestamps();
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function tags()

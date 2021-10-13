@@ -56,13 +56,13 @@
                     @endif
 <!-- ↓追加 -->
 <!-- favorite 状態で条件分岐 -->
-@if($tweet->users()->where('user_id', Auth::id())->exists())
+@if($tweet->tags()->where('user_id', Auth::id())->exists())
 <!-- unfavorite ボタン -->
 <form action="{{ route('unfavorites',$tweet) }}" method="POST" class="text-left">
   @csrf
   <button type="submit" class="flex mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-red py-1 px-2 focus:outline-none focus:shadow-outline">
   <i class="fas fa-angry"></i> 
-    {{ $tweet->users()->count() }}
+    {{ $tweet->tags()->count() }}
   </button>
 </form>
 @else
@@ -71,7 +71,7 @@
   @csrf
   <button type="submit" class="flex mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-black py-1 px-2 focus:outline-none focus:shadow-outline">
   <i class="far fa-angry"></i>
-    {{ $tweet->users()->count() }}
+    {{ $tweet->tags()->count() }}
   </button>
 </form>
 @endif
