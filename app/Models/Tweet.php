@@ -33,10 +33,10 @@ class Tweet extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    public function tags()
-    {
-      return $this->belongsToMany(User::class, 'tweet_but_user')->withTimestamps();
-    }
+      public function tags()
+      {
+        return $this->belongsToMany(User::class, 'tweet_but_user')->withTimestamps();
+      }
       
 
 }

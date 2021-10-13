@@ -54,27 +54,27 @@
                       </button>
                     </form>
                     @endif
-<!-- ↓追加 -->
-<!-- favorite 状態で条件分岐 -->
-@if($tweet->tags()->where('user_id', Auth::id())->exists())
-<!-- unfavorite ボタン -->
-<form action="{{ route('unfavorites',$tweet) }}" method="POST" class="text-left">
-  @csrf
-  <button type="submit" class="flex mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-red py-1 px-2 focus:outline-none focus:shadow-outline">
-  <i class="fas fa-angry"></i> 
-    {{ $tweet->tags()->count() }}
-  </button>
-</form>
-@else
-<!-- favorite ボタン -->
-<form action="{{ route('favorites',$tweet) }}" method="POST" class="text-left">
-  @csrf
-  <button type="submit" class="flex mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-black py-1 px-2 focus:outline-none focus:shadow-outline">
-  <i class="far fa-angry"></i>
-    {{ $tweet->tags()->count() }}
-  </button>
-</form>
-@endif
+  <!-- ↓追加 -->
+  <!-- favorite 状態で条件分岐 -->
+  @if($tweet->tags()->where('user_id', Auth::id())->exists())
+  <!-- unfavorite ボタン -->
+  <form action="{{ route('unfavorites',$tweet) }}" method="POST" class="text-left">
+    @csrf
+    <button type="submit" class="flex mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-red py-1 px-2 focus:outline-none focus:shadow-outline">
+    <i class="fas fa-angry"></i> 
+      {{ $tweet->tags()->count() }}
+    </button>
+  </form>
+  @else
+  <!-- favorite ボタン -->
+  <form action="{{ route('favorites',$tweet) }}" method="POST" class="text-left">
+    @csrf
+    <button type="submit" class="flex mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-black py-1 px-2 focus:outline-none focus:shadow-outline">
+    <i class="far fa-angry"></i>
+      {{ $tweet->tags()->count() }}
+    </button>
+  </form>
+  @endif
 
                     @if ($tweet->user_id === Auth::user()->id)
                     <!-- 更新ボタン -->
